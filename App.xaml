@@ -1,0 +1,15 @@
+﻿<Application x:Class="WPF_MVVM_Base.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WPF_MVVM_Base"
+             xmlns:vm="clr-namespace:WPF_MVVM_Base.ViewModels"
+             xmlns:c="clr-namespace:WPF_MVVM_Base.Converters"
+             StartupUri="Views/MainView.xaml">
+    <Application.Resources>
+        <vm:ViewModelLocator x:Key="Locator"/>
+        <!-- Converters -->
+        <c:NullToVisibility x:Key="NullToVisibility"/>
+        <c:BoolToVisibility x:Key="BoolToVisibility"/>
+        <c:BoolInverter x:Key="BoolInverter"/>        
+    </Application.Resources>
+</Application>

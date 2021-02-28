@@ -1,0 +1,45 @@
+﻿<Page x:Class="WPF_MVVM_Base.Views.UserListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF_MVVM_Base.Views"
+      xmlns:p="clr-namespace:WPF_MVVM_Base.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UserListPage"
+      DataContext="{Binding UserListPageVM, Source={StaticResource Locator}}">
+
+    <Grid>
+        <DataGrid ItemsSource="{Binding UserList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" 
+                  AutoGenerateColumns="False" 
+                  SelectionMode="Single">
+
+            <DataGrid.RowValidationErrorTemplate>
+                <ControlTemplate>
+                    <Grid Margin="0,-2,0,-2"
+                          ToolTip="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGridRow}}, Path=(Validation.Errors)[0].ErrorContent}">
+                        <Ellipse StrokeThickness="0" 
+                                 Fill="Red" 
+                                 Width="{TemplateBinding FontSize}" 
+                                 Height="{TemplateBinding FontSize}" />
+                        <TextBlock Text="!" FontSize="{TemplateBinding FontSize}" 
+                                   FontWeight="Bold" 
+                                   Foreground="White" 
+                                   HorizontalAlignment="Center"  />
+                    </Grid>
+                </ControlTemplate>
+            </DataGrid.RowValidationErrorTemplate>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{x:Static p:Resources.Surname}" Binding="{Binding Surname, ValidatesOnDataErrors=True}"/>
+                <DataGridTextColumn Header="{x:Static p:Resources.Lastname}" Binding="{Binding Lastname, ValidatesOnDataErrors=True}"/>
+                <DataGridTextColumn Header="{x:Static p:Resources.Fullname}" Binding="{Binding Name}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="{x:Static p:Resources.Email}" Binding="{Binding Email, ValidatesOnDataErrors=True}"/>
+                <DataGridTextColumn Header="{x:Static p:Resources.Username}" Binding="{Binding Username, ValidatesOnDataErrors=True}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <Button Content="Reload" Width="100" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Command="{Binding ReloadUsersCmd}"/>
+    </Grid>
+</Page>
