@@ -10,16 +10,42 @@
       DataContext="{Binding MainPageVM, Source={StaticResource Locator}}">
 
     <Grid>
-        <TextBlock Text="{Binding Message}" Width="200" Height="30"/>
-        <Button Command="{Binding TalkCmd}" CommandParameter="10000" Content="Talk!" Width="200" Height="30" Margin="0,65,0,0"/>
-        <RadioButton Content="Loading" IsEnabled="False" Width="200" Height="30" Margin="0,135,0,0" IsChecked="{Binding IsBusy}"/>
-        <TextBox Text="{Binding NewMessage}" Width="200" Height="30" Margin="0,195,0,0"/>
-        <Button Content="Send" Width="200" Height="30" Margin="0,255,0,0" Command="{Binding WriteCmd}"/>
-        <DataGrid Width="300" Height="300" Margin="500,125,0,0" ItemsSource="{Binding Messages}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Created At" Binding="{Binding CreateAt}"/>
-                <DataGridTextColumn Header="Message" Binding="{Binding Text}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <TextBlock Text="{Binding Message}" Width="200" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Command="{Binding TalkCmd}" CommandParameter="10000" Content="Talk!" Width="200" Height="30" Margin="0,65,0,0"/>
+            <RadioButton Content="Loading" IsEnabled="False" Width="200" Height="30" Margin="0,135,0,0" IsChecked="{Binding IsBusy}"/>
+        </Grid>
+        <Grid Grid.Column="3">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <DataGrid ItemsSource="{Binding Messages}" 
+                      AutoGenerateColumns="False"
+                      CanUserReorderColumns="False"
+                      CanUserDeleteRows="False"
+                      CanUserAddRows="False"
+                      CanUserResizeRows="False"
+                      CanUserSortColumns="false">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Created At" Binding="{Binding CreateAt}"/>
+                    <DataGridTextColumn Header="Message" Binding="{Binding Text}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Text="{Binding NewMessage}" Grid.Column="0" HorizontalAlignment="Stretch" IsEnabled="{Binding IsBusy, Converter={StaticResource BoolInverter}}"/>
+                <Button Content="Send" Grid.Column="1" Command="{Binding WriteCmd}"/>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>
