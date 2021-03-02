@@ -13,5 +13,13 @@
         <TextBlock Text="{Binding Message}" Width="200" Height="30"/>
         <Button Command="{Binding TalkCmd}" CommandParameter="10000" Content="Talk!" Width="200" Height="30" Margin="0,65,0,0"/>
         <RadioButton Content="Loading" IsEnabled="False" Width="200" Height="30" Margin="0,135,0,0" IsChecked="{Binding IsBusy}"/>
+        <TextBox Text="{Binding NewMessage}" Width="200" Height="30" Margin="0,195,0,0"/>
+        <Button Content="Send" Width="200" Height="30" Margin="0,255,0,0" Command="{Binding WriteCmd}"/>
+        <DataGrid Width="300" Height="300" Margin="500,125,0,0" ItemsSource="{Binding Messages}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Created At" Binding="{Binding CreateAt}"/>
+                <DataGridTextColumn Header="Message" Binding="{Binding Text}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>
