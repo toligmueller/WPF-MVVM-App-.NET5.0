@@ -24,7 +24,16 @@ namespace WPF_MVVM_Base.ViewModels
             IServiceCollection serviceCollection = new ServiceCollection();
 
             serviceCollection.AddSingleton<IFrameNavigationService>(new FrameNavigationService(new Uri("Views/MainPage.xaml", UriKind.RelativeOrAbsolute)));
-            serviceCollection.AddSingleton<IDemoService>(new DemoService());
+
+            if (Application.Current.MainWindow == null)
+            {
+                serviceCollection.AddSingleton<IDemoService, FakeDemoService>();
+            }
+            else
+            {
+                serviceCollection.AddSingleton<IDemoService>(new DemoService());
+            }
+
             serviceCollection.AddSingleton<MainViewModel>(); // Loads on Access
             serviceCollection.AddTransient<MainPageViewModel>(); // Reloads on Access, old instances will be closed after some time, GC magic.
             serviceCollection.AddSingleton<AboutPageViewModel>(new AboutPageViewModel()); // Loads instantly
