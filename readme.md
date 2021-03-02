@@ -104,3 +104,4 @@
 - [ ] Telerik (Demo)
 - [ ] MahApps.Metro  (Demo)
 - [ ] VS Template
+- [ ] User Secrets (Demo)
