@@ -1,4 +1,4 @@
-# Model View ViewModel
+# WPF MVVM Demo
 
 
 
@@ -22,9 +22,7 @@
 - Code behind allowed 
 - Dependency properties
 
-#### Templates
 
-- ???
 
 ### Logic Layer
 
@@ -44,6 +42,8 @@
   - AddTransient: Temporary
   - AddScoped: ???
 
+
+
 ### Data Layer
 
 #### Models
@@ -52,6 +52,8 @@
 - Validation (IDataErrorInfo)
 - Communication between models by messenger (event bus)
 - INotifyPropertyChanged (Observable-Object/Recipient)
+
+
 
 ### Base Layer
 
@@ -78,42 +80,30 @@
 
 
 
-## To do (Base)
+## To do
 
-- [x] ViewModelLocator
-- [x] NavigationService
-- [x] RelayCommands
-- [x] AsyncRelayCommandsConverters
-- [x] InDesingMode
-- [x] Global Exception Handler
-- [x] Global Instance Navigation
-- [x] DemoService
-- [x] Messenger (Send/Receive)
-- [ ] Messenger (Request)
-- [x] Messages
-- [x] Controls
-- [ ] Templates
-- [x] Models
-- [x] Model Collection
-- [x] Viewmodels
-- [x] Localization
+- [x] ViewModelLocator (Feature)
+- [x] NavigationService (Feature)
+- [x] RelayCommands (Feature)
+- [x] AsyncRelayCommandsConverters (Feature)
+- [x] InDesingMode (Freature)
+- [x] Global Exception Handler (Feature)
+- [x] DemoService (Demo)
+- [x] Messager (Event Hub) (Demo)
+- [x] Controls (Demo)
+- [x] Models + Validation (Demo)
+- [x] Model Collection (Demo)
+- [x] Viewmodels (Demo)
+- [x] Localization (Demo)
 - [x] IDataErrorInfo (Models)
-- [x] App Settings
-- [x] Logging
-- [x] Logging with App Settings
+- [x] App Settings (Demo)
+- [x] Logging (Feature)
 - [ ] Documentation (in code)
 - [ ] Documentation (readme)
-
-
-
-## To do (Extended)
-
-- [ ] DB Service (MSQL)
-- [ ] DB Service (PostgreSQL)
-- [ ] DB Service (MariaDB)
-- [ ] MS Graph Service
-- [ ] Ansible Service
-- [ ] Telerik 
-- [ ] MahApps.Metro
-- [ ] Messages with Channel Token
-- [ ] Independent Instance Navigation 
+- [ ] Entity Framework (Sqlite) (Demo)
+- [ ] MS Graph Service (Feature)
+- [ ] Ansible Service (Feature)
+- [ ] Telerik (Demo)
+- [ ] MahApps.Metro  (Demo)
+- [ ] Messages with Channel Token (Demo)
+- [ ] Independent Instance Navigation (Demo)
