@@ -98,7 +98,7 @@
 - [x] IDataErrorInfo (Models)
 - [x] App Settings (Demo)
 - [x] Logging (Feature)
-- [ ] Entity Framework (Sqlite) (Demo)
+- [x] Entity Framework (Sqlite) (Demo)
 - [ ] MS Graph Service (Feature)
 - [ ] Ansible Service (Feature)
 - [ ] Telerik (Demo)
