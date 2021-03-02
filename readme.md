@@ -103,3 +103,4 @@
 - [ ] Ansible Service (Feature)
 - [ ] Telerik (Demo)
 - [ ] MahApps.Metro  (Demo)
+- [ ] VS Template
