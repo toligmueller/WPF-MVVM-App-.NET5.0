@@ -9,7 +9,9 @@ namespace WPF_MVVM_Base.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is null)
+            if (value is null || 
+                (value is string && string.IsNullOrWhiteSpace((string)value)) ||
+                (value is int && (int)value == 0))
             {
                 return Visibility.Collapsed;
             }
