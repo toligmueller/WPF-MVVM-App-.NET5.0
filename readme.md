@@ -103,5 +103,8 @@
 - [ ] Ansible Service (Feature)
 - [ ] Telerik (Demo)
 - [ ] MahApps.Metro  (Demo)
-- [ ] VS Template
+- [x] VS Template (Basic)
+- [ ] VS Template (Telerik)
+- [ ] VS Template (MahApps Metro)
+- [ ] VS Item Templates
 - [ ] User Secrets (Demo)
