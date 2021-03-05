@@ -18,7 +18,7 @@ namespace WPF_MVVM_Base
     { 
         public App()
         {
-            // loading UI/UX culture
+            // loading UI/UX localization
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             WPF_MVVM_Base.Properties.Resources.Culture = new CultureInfo(config.AppSettings.Settings["culture"].Value);
 
@@ -29,7 +29,6 @@ namespace WPF_MVVM_Base
             TaskScheduler.UnobservedTaskException += TaskSchedulerUnobservedTaskExceptionHandler;
 
             // logging
-            //Serilog.Debugging.SelfLog.Enable(msg => Debug.WriteLine(msg));
             string outputTemplate = "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}";
             Log.Logger = new LoggerConfiguration()
                     .ReadFrom.AppSettings()
